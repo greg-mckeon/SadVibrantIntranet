@@ -1,0 +1,47 @@
+{{> user}}
+<div class="pageContainer postsContainer">
+  <h1>{{section}} Posts</h1>
+  {{#if loggedIn}}
+    <button class="createNew styledButton">Create New</button>
+  {{/if}}
+  <div class="postsNav">
+    {{#each sections}}
+      {{#if this.current}}
+        <span>{{this.name}}</span>
+      {{else}}
+        <span>
+          <a href="/posts/{{lowercase this.name}}">{{this.name}}</a>
+        </span>
+      {{/if}}
+    {{/each}}
+  </div>
+  {{#if posts}}
+    {{#each posts}}
+      <div class="listPostContainer">
+        {{#if ../loggedIn}}
+          <div class="listPostVoteContainer">
+            <button title="Upvote" class="upvoteButton{{#if this.upvoted}} selected{{/if}}" data-post={{this.id}}></button>
+            <button title="Downvote" class="downvoteButton{{#if this.downvoted}} selected{{/if}}" data-post={{this.id}}></button>
+          </div>
+        {{/if}}
+        <div class="listPostContainerInner">
+          <a
+            class="postLink"
+            {{#if this.external}}target="_blank"{{/if}}
+            href={{#if this.external}}{{this.url}}{{else}}"/posts/{{this.id}}"{{/if}}
+          >
+            {{this.title}}
+            {{#if this.external}}<i class="fa fa-external-link"></i>{{/if}}
+          </a>
+          <span class="listPostExtraInfo">Created by {{this.authorName}} on <span class="listPostCreatedStamp" data-stamp={{this.createdAt}}>{{formatDate createdAt}}</span> | <a href="/posts/{{this.id}}">{{#if this.comments}}{{length this.comments}} Comment{{endS (length this.comments)}}{{else}}Discuss{{/if}}</a></span>
+          {{#if ../account.admin}}
+            <button class="deletePostButton" data-post-id="{{this.id}}">&#10006;</button>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <p>There's no posts here yet!</p>
+  {{/if}}
+</div>
+<script src="/assets/index.js"></script>

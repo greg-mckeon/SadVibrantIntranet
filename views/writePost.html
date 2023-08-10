@@ -1,0 +1,16 @@
+{{> user}}
+<div class="pageContainer postComposer">
+  <h1>Write Post</h1>
+  {{#each errors}}
+    <p class="error">{{this}}</p>
+  {{/each}}
+  <form action="/writePost" method="post">
+    <label for="title">Title: </label>
+    <input id="title" type="text" name="title" required minlength="5" maxlength="100" autocomplete="off" />
+    <label for="url">URL: </label>
+    <input id="url" type="url" name="url" autocomplete="off" />
+    <label for="content">Content: </label>
+    <textarea id="content" name="content" rows="4" autocomplete="off" minlength="5" maxlength="1000" class="styledTextarea"></textarea>
+    <input type="submit" value="Create Post" class="styledButton" />
+  </form>
+</div>

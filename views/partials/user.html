@@ -1,0 +1,16 @@
+{{#if loggedIn}}
+  <div class="accountInfo" tabindex="0">
+    <span class="accountUsername">{{account.username}}</span>
+    <div class="accountDropdown">
+      <a href="/">Home</a>
+      <a href="/writePost">New Post</a>
+      <form action="/logout" method="post">
+        <input type="submit" value="Log Out" />
+      </form>
+    </div>
+  </div>
+{{else}}
+  <div class="accountLogInLink">
+    <a href="/logIn">Log In</a>
+  </div>
+{{/if}}

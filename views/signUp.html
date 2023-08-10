@@ -1,0 +1,16 @@
+<div class="pageContainer accountLogIn">
+  <h1>Sign Up</h1>
+  {{#each errors}}
+    <p class="error">{{this}}</p>
+  {{/each}}
+  <form action="/signUp{{#if redirect}}?redirect={{redirect}}{{/if}}" method="post">
+    <label for="username">Username: </label>
+    <input id="username" type="text" name="username" required pattern="[A-Za-z0-9_]{2,20}" title="Username must be 2-20 characters and can only contain letters, numbers, and underscores" {{#if username}}value="{{username}}"{{/if}} />
+    <label for="password">Password: </label>
+    <input id="password" type="password" name="password" required pattern=".{5,}" title="Password must be at least 5 characters" />
+    <label for="confirmPassword">Confirm Password: </label>
+    <input id="confirmPassword" type="password" name="confirmPassword" required />
+    <input type="submit" value="Create Account" class="centered styledButton" />
+  </form>
+  <p class="switchLogin">Already have an account? <a href="/logIn">Log in!</a></p>
+</div>

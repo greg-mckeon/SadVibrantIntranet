@@ -1,0 +1,14 @@
+<div class="pageContainer accountLogIn">
+  <h1>Log In</h1>
+  {{#each errors}}
+    <p class="error">{{this}}</p>
+  {{/each}}
+  <form action="/logIn{{#if redirect}}?redirect={{redirect}}{{/if}}" method="post">
+    <label for="username">Username: </label>
+    <input id="username" type="text" name="username" required {{#if username}}value="{{username}}"{{/if}} />
+    <label for="password">Password: </label>
+    <input id="password" type="password" name="password" required />
+    <input type="submit" value="Log In" class="centered styledButton" />
+  </form>
+  <p class="switchLogin">Don't have an account yet? <a href="/signUp">Sign up!</a></p>
+</div>

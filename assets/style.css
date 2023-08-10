@@ -1,0 +1,442 @@
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 19px;
+  margin: 0;
+  padding: 0 30px;
+  display: flow-root;
+}
+
+.loggedOut {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5em;
+  overflow-wrap: anywhere;
+}
+
+.loggedOut a, .switchLogin {
+  font-size: 0.8em;
+}
+
+.pageContainer {
+  margin: 60px auto;
+
+  max-width: 100%;
+
+  box-sizing: border-box;
+  
+  overflow-wrap: anywhere;
+
+  border-radius: 15px;
+  border-width: 2px;
+  border-style: solid;
+  /* border-color is set in prefers-color-scheme media queries */
+}
+
+.accountLogIn {
+  padding: 20px;
+  width: 500px;
+}
+
+.pageContainer > h1 {
+  text-align: center;
+  margin: 0.15em 0;
+}
+
+.pageContainer > .error {
+  text-align: center;
+}
+
+.accountLogIn > form > input[type="text"], .accountLogIn > form > input[type="url"], .accountLogIn > form > input[type="password"], .accountLogIn > form > textarea,
+.postComposer > form > input[type="text"], .postComposer > form > input[type="url"], .postComposer > form > input[type="password"], .postComposer > form > textarea {
+  margin: 5px 0 20px;
+}
+
+.pageContainer > form > input[type="text"], .pageContainer > form > input[type="url"], .pageContainer > form > input[type="password"], .styledTextarea {
+  outline: none;
+  
+  padding: 5px 10px;
+  
+  width: 100%;
+  box-sizing: border-box;
+
+  border-radius: 5px;
+  border: 2px solid rgb(127 127 127);
+  
+  font-size: 0.8em;
+  font-family: inherit;
+  color: inherit;
+  
+  background-color: rgb(127 127 127 / 0.2);
+
+  transition: border-color 0.3s;
+}
+
+.styledTextarea {
+  resize: vertical;
+}
+
+.styledButton {
+  -webkit-appearance: none;
+  
+  outline: none;
+  
+  padding: 5px 20px;
+  
+  display: block;
+  
+  background-color: #e5e5ff;
+  color: #000000;
+  
+  font-weight: normal;
+  
+  border-radius: 6px;
+  border: 2px solid #7a7aff;
+  
+  cursor: pointer;
+
+  font-size: 0.8em;
+  
+  transition: background-color 0.5s;
+}
+
+.styledButton.centered {
+  margin: 0 auto;
+}
+
+.styledButton:hover, .styledButton:focus {
+  background-color: #d7d7fe;
+}
+
+.switchLogin {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.accountInfo, .accountLogInLink {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  
+  text-align: right;
+  
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.accountInfo {
+  min-width: 150px;
+}
+
+.accountUsername::after {
+  content: "";
+  
+  display: inline-block;
+  width: 0;
+  height: 0;
+
+  margin-left: 5px;
+  
+  /* top | horizontal | bottom */
+  border-width: 10px 10px 0;
+  /* border-top-color is set in prefers-color-scheme media queries */
+  border-color: transparent;
+  border-style: solid;
+}
+
+.accountDropdown {
+  display: none;
+  
+  text-align: left;
+  
+  border-radius: 5px;
+  
+  margin-top: 10px;
+  padding: 10px 7px;
+}
+
+.accountInfo:hover .accountDropdown, .accountInfo:focus .accountDropdown, .forceOpen .accountDropdown {
+  display: block;
+}
+
+.accountDropdown form {
+  padding: 0;
+}
+
+.accountDropdown > *:not(form), .accountDropdown input[type="submit"] {
+  -webkit-appearance: none;
+  
+  display: block;
+
+  text-decoration: none;
+  border: none;
+  outline: none;
+  
+  color: inherit;
+  background: transparent;
+  
+  font-family: inherit;
+  font-size: 0.9em;
+  font-weight: normal;
+
+  text-align: left;
+
+  width: 100%;
+  padding: 5px 12px;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  cursor: pointer;
+}
+
+.pageContainer:not(.accountLogIn) {
+  padding: 20px 30px;
+  width: 1200px;
+}
+
+.listPostVoteContainer, .listPostContainerInner {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.listPostVoteContainer {
+  margin-right: 7px;
+}
+
+.listPostContainer {
+  margin: 1em 0;
+}
+
+.upvoteButton, .downvoteButton {
+  background: none;
+  padding: 0;
+
+  display: inline-block;
+  vertical-align: top;
+  
+  width: 0;
+  height: 0;
+
+  border-width: 7px;
+  border-style: solid;
+  border-top-color: #7a7aff;
+  border-bottom-color: #7a7aff;
+  border-left-color: transparent;
+  border-right-color: transparent;
+
+  vertical-align: middle;
+  
+  transition: filter 0.25s, border-color 0.25s;
+}
+
+.upvoteButton:enabled, .downvoteButton:enabled {
+  cursor: pointer;
+}
+
+.upvoteButton {
+  border-top-width: 0;
+  border-bottom-width: 12px;
+}
+
+.downvoteButton {
+  border-bottom-width: 0;
+  border-top-width: 12px;
+}
+
+.postContainer .listPostExtraInfo {
+  display: inline-block;
+}
+
+.postContainer .listPostExtraInfo + .listPostVoteContainer {
+  margin: 0 0 0 3px;
+  vertical-align: middle;
+}
+
+.postLink {
+  display: block;
+}
+
+.listPostExtraInfo {
+  display: inline-block;
+  font-size: 0.9em;
+  margin-top: 0.3em;
+}
+
+.commentButton, .commentTextarea {
+  margin-top: 15px;
+}
+
+.commentPostButton {
+  margin-top: 8px;
+}
+
+.postBack + .postLinkExternal {
+  margin-top: 1em;
+}
+
+.postContent, .postCommentContent {
+  overflow-wrap: anywhere;
+}
+
+.postContent {
+  margin-bottom: 0.3em;
+}
+
+.postComment {
+  font-size: 0.8em;
+  margin-top: 25px;
+}
+
+.postCommentContent {
+  margin-top: 0.2em;
+}
+
+.postBack {
+  font-size: 0.8em;
+}
+
+.postLinkExternal {
+  font-size: 0.9em;
+  display: block;
+}
+
+.postContainer .listPostExtraInfo {
+  margin-top: 0.6em;
+}
+
+.postsNav {
+  font-size: 0.9em;
+  margin-top: 1em;
+}
+
+.postsNav a {
+  color: inherit;
+}
+
+.postsNav * + *::before {
+  content: " | ";
+}
+
+.deletePostButton, .deleteCommentButton {
+  background: none;
+  border: none;
+  
+  color: #c06868;
+
+  margin-left: 5px;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  a {
+    color: #0000ff;
+  }
+
+  .pageContainer {
+    background-color: rgb(127 127 127 / 0.1);
+    border-color: #000000;
+  }
+
+  .pageContainer > .error {
+    color: #bd0000;
+  }
+
+  .pageContainer > form > input[type="text"]:focus, .pageContainer > form > input[type="url"]:focus, .pageContainer > form > input[type="password"]:focus, .styledTextarea:focus {
+    border-color: rgb(67 67 67);
+  }
+  
+  .accountUsername::after {
+    border-top-color: #000000;
+  }
+
+  .accountDropdown {
+    background-color: #e0dcdc;
+  }
+  
+  .accountDropdown > *:not(form):hover, .accountDropdown input[type="submit"]:hover, .accountDropdown > *:not(form):focus, .accountDropdown input[type="submit"]:focus {
+    background-color: #c0bcbc;
+  }
+
+  .listPostExtraInfo, .postCommentInfo, .postBack, .postsNav {
+    color: rgb(97 97 97);
+  }
+
+  .listPostExtraInfo > a {
+    color: inherit;
+  }
+
+  .upvoteButton.selected, .downvoteButton.selected {
+    border-top-color: #26269c;
+    border-bottom-color: #26269c;
+  }
+
+  .upvoteButton:disabled, .downvoteButton:disabled {
+    filter: brightness(1.5);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0a0a0a;
+    color: #ffffff;
+  }
+
+  a {
+    color: #87ceeb;
+  }
+
+  .pageContainer {
+    background-color: rgb(127 127 127 / 0.2);
+    border-color: #a3a3a3;
+  }
+
+  .pageContainer > .error {
+    color: #ffd6d6;
+  }
+
+  .pageContainer > form > input[type="text"]:focus, .pageContainer > form > input[type="url"]:focus, .pageContainer > form > input[type="password"]:focus, .styledTextarea:focus {
+    border-color: rgb(167 167 167);
+  }
+  
+  .accountUsername::after {
+    border-top-color: #ffffff;
+  }
+
+  .accountDropdown {
+    background-color: #403c3c;
+  }
+  
+  .accountDropdown > *:not(form):hover, .accountDropdown input[type="submit"]:hover, .accountDropdown > *:not(form):focus, .accountDropdown input[type="submit"]:focus {
+    background-color: #686464;
+  }
+
+  .listPostExtraInfo, .postCommentInfo, .postBack, .postsNav {
+    color: rgb(157 157 157);
+  }
+
+  .listPostExtraInfo > a {
+    color: inherit;
+  }
+
+  .upvoteButton.selected, .downvoteButton.selected {
+    border-top-color: #e5e5ff;
+    border-bottom-color: #e5e5ff;
+  }
+
+  .upvoteButton:disabled, .downvoteButton:disabled {
+    filter: brightness(0.5);
+  }
+}
+
+@media (max-width: 500px) {
+  .styledButton {
+    margin: 0 auto;
+  }
+}

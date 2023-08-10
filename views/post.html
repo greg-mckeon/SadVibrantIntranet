@@ -1,0 +1,41 @@
+{{> user}}
+<div class="pageContainer postContainer">
+  <h1>{{post.title}}</h1>
+  <a class="postBack" href={{#if backTo}}{{backTo}}{{else}}"/"{{/if}}>&larr; All Posts</a>
+  {{#if post.content}}
+    <p class="postContent">{{post.content}}</p>
+  {{/if}}
+  {{#if post.external}}
+    <a class="postLinkExternal" target="_blank" href={{post.url}}>
+      {{post.url}} <i class="fa fa-external-link"></i>
+    </a>
+  {{/if}}
+  <span class="listPostExtraInfo">Created by {{authorName}} on <span class="listPostCreatedStamp" data-stamp="{{post.createdAt}}">{{formatDate post.createdAt}}</span></span>
+  {{#if loggedIn}}
+    <div class="listPostVoteContainer">
+      <button title="Upvote" class="upvoteButton{{#if upvoted}} selected{{/if}}" data-post={{post.id}}></button>
+      <button title="Downvote" class="downvoteButton{{#if downvoted}} selected{{/if}}" data-post={{post.id}}></button>
+    </div>
+  {{/if}}
+  {{#if account.admin}}
+    <button class="deletePostButton" data-post-id="{{post.id}}">&#10006;</button>
+  {{/if}}
+  {{#if comments}}
+    <hr />
+  {{/if}}
+  {{#if loggedIn}}
+    <button class="commentButton styledButton">Comment</button>
+  {{/if}}
+  {{#each comments}}
+    <div class="postComment" data-post-id="{{../post.id}}" data-comment-id="{{this.id}}">
+      <div class="postCommentInfo">
+        {{this.authorName}} &bull; <span class="listPostCreatedStamp" data-stamp="{{this.createdAt}}">{{formatDate this.createdAt}}</span>
+        {{#if ../account.admin}}
+          <button class="deleteCommentButton">&#10006;</button>
+        {{/if}}
+      </div>
+      <p class="postCommentContent">{{this.comment}}</p>
+    </div>
+  {{/each}}
+</div>
+<script src="/assets/index.js"></script>
