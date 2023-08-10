@@ -3,7 +3,7 @@ const app = express();
 
 const session = require("express-session");
 const { create } = require("express-handlebars");
-
+  
 const getRedirectTo = require("./modules/getRedirectTo.js");
 const getMappedPosts = require("./modules/getMappedPosts.js");
 const getVoteWeights = require("./modules/getVoteWeights.js");
