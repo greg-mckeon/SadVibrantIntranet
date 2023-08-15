@@ -2,8 +2,7 @@
 
 Make your own Hacker News like website on any topic (ex: History, biology, etc...) you want by using this template as a base.
 bkgdghdhdhd
-
-## Assigning Admin Perms
+aniother change
 You may find that you would like to be able to delete posts, especially while testing your Hacker News-like website. The easiest way to do this is to create an account and give it admin.
 
 This can be done by adding an Environment Variable (lock icon on left-hand side of Replit editor) with a key of `ADD_ADMIN` and a value of your account's username. When you run the repl, the program will read this variable and assign admin to that account. Once you run it, be sure to remove the Environment Variable afterwards.
