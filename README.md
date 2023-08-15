@@ -6,7 +6,7 @@ You may find that you would like to be able to delete posts, especially while te
 
 This can be done by adding an Environment Variable (lock icon on left-hand side of Replit editor) with a key of `ADD_ADMIN` and a value of your account's username. When you run the repl, the program will read this variable and assign admin to that account. Once you run it, be sure to remove the Environment Variable afterwards.
 
-Once your account has admin on the website, you will be able to delete posts and comments using the "x" button that appears next to each of them.
+Once your account has admin on the website, you will bdeadwdewde able to delete posts and comments using the "x" button that appears next to each of them.
 
 Should you ever need to remove admin from an account, you can follow the same process except by using the `REMOVE_ADMIN` Environment Variable instead of the previously mentioned `ADD_ADMIN`.
 
