@@ -9,4 +9,4 @@ deddedeed
 Once your account has admin on the website, you will bdeadwdewde able to delete posts and comments using the "x" button that appears next to each of them.
 ede
 Should you ever need to remove admin from an account, you can follow the same process except by using the `REMOVE_ADMIN` Environment Variable instead of the previously mentioned `ADD_ADMIN`.
-
+edededdeed
