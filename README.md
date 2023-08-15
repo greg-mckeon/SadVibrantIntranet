@@ -1,4 +1,3 @@
-# Hacker News Template
 
 Make your own Hacker News like website on any topic (ex: History, biology, etc...) you want by using this template as a base.
 bkgdghdhdhd
@@ -10,3 +9,4 @@ This can be done by adding an Environment Variable (lock icon on left-hand side 
 Once your account has admin on the website, you will be able to delete posts and comments using the "x" button that appears next to each of them.
 
 Should you ever need to remove admin from an account, you can follow the same process except by using the `REMOVE_ADMIN` Environment Variable instead of the previously mentioned `ADD_ADMIN`.
+
